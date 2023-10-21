@@ -32,49 +32,49 @@ class ModifiedMixin(models.Model):
         abstract = True
 
 
-# class User(UUIDMixin, CreatedMixin, ModifiedMixin):
-#     teacher = 'лекция'
-#     student = 'студент'
-#     CHOICES = (
-#               (teacher, 'учитель'),
-#               (student, 'студент'),
-#     )
-#     role = models.CharField(_('role'), max_length=40, choices=CHOICES)
-#     user_name = models.CharField(
-#         _('user name'), max_length=40)
-#     user_surname = models.CharField(
-#         _('user surname'), max_length=40)
-#     email = models.EmailField(_('email'), blank=True, null=True)
-#     user = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
-#     subject = models.ForeignKey(
-#         'Subject', on_delete=models.CASCADE, blank=True, null=True)
-#     group = models.ForeignKey(
-#         'Group', on_delete=models.CASCADE)
+class User(UUIDMixin, CreatedMixin, ModifiedMixin):
+    teacher = 'лекция'
+    student = 'студент'
+    CHOICES = (
+              (teacher, 'учитель'),
+              (student, 'студент'),
+    )
+    role = models.CharField(_('role'), max_length=40, choices=CHOICES)
+    user_name = models.CharField(
+        _('user name'), max_length=40)
+    user_surname = models.CharField(
+        _('user surname'), max_length=40)
+    email = models.EmailField(_('email'), blank=True, null=True)
+    user = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    subject = models.ForeignKey(
+        'Subject', on_delete=models.CASCADE, blank=True, null=True)
+    group = models.ForeignKey(
+        'Group', on_delete=models.CASCADE)
 
-#     def __str__(self):
-#         return f"{self.user_surname} {self.user_name}"
+    def __str__(self):
+        return f"{self.user_surname} {self.user_name}"
 
-#     class Meta:
-#         db_table = 'user'
-#         verbose_name = _('user')
-#         verbose_name_plural = _('users')
+    class Meta:
+        db_table = 'user'
+        verbose_name = _('user')
+        verbose_name_plural = _('users')
 
-class User(AbstractUser):
-    email = models.EmailField(unique=True)
-    username = models.CharField(max_length=30, unique=True)
-    first_name = models.CharField(max_length=30, blank=True)
-    last_name = models.CharField(max_length=50, blank=True)
-    date_joined = models.DateTimeField(auto_now_add=True)
-    is_active = models.BooleanField(default=True)
-    is_deleted = models.BooleanField(default=False)
-    created_date = models.DateTimeField(default=timezone.now)
-    modified_date = models.DateTimeField(default=timezone.now)
-    created_by = models.DateTimeField(default=timezone.now)
-    modified_by = models.DateTimeField(default=timezone.now)
-    role = models.CharField(max_length=100, default="normal")
-    status = models.CharField(max_length=100, default="Active")
-    auth_provider = models.CharField(
-        max_length=50, blank=True, default='email')
+# class User(AbstractUser):
+#     email = models.EmailField(unique=True)
+#     username = models.CharField(max_length=30, unique=True)
+#     first_name = models.CharField(max_length=30, blank=True)
+#     last_name = models.CharField(max_length=50, blank=True)
+#     date_joined = models.DateTimeField(auto_now_add=True)
+#     is_active = models.BooleanField(default=True)
+#     is_deleted = models.BooleanField(default=False)
+#     created_date = models.DateTimeField(default=timezone.now)
+#     modified_date = models.DateTimeField(default=timezone.now)
+#     created_by = models.DateTimeField(default=timezone.now)
+#     modified_by = models.DateTimeField(default=timezone.now)
+#     role = models.CharField(max_length=100, default="normal")
+#     status = models.CharField(max_length=100, default="Active")
+#     auth_provider = models.CharField(
+#         max_length=50, blank=True, default='email')
 
 class Subject(UUIDMixin, CreatedMixin, ModifiedMixin):
     usual = 'лекция'
