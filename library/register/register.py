@@ -34,7 +34,7 @@ def register_social_user(provider, user_id, email, name):
             'username': email, 'email': email,
             'password': settings.SOCIAL_SECRET
         }
-        user = User.objects.create_user(user)
+        user = User.objects.create_user(**user)
         user.is_active = True
         user.auth_provider = provider
         user.save()
@@ -47,4 +47,3 @@ def register_social_user(provider, user_id, email, name):
             'username': new_user.username,
             'tokens': str(new_token[0]['key']),
         }
-

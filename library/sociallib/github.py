@@ -2,6 +2,7 @@ from django.conf import settings
 import urllib.request as requests
 import json
 
+
 class Github:
     """
     Github class to fetch the user info and return it
@@ -13,7 +14,7 @@ class Github:
         """
         try:
             url = 'https://github.com/login/oauth/access_token?client_id=%s&client_secret=%s&code=%s' % (
-                settings.GITHUB_CLIENT_ID, settings.SOCIAL_SECRET, auth_token)
+                settings.CLIENT_ID, settings.CLIENT_SECRET, auth_token)
             req = requests.urlopen(url)
             reply = req.read()
             access_token = (reply.decode('utf-8').split('&'))[0][13:]

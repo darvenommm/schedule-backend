@@ -86,8 +86,9 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',                          # <<< newly added line
 ]
 
-GITHUB_CLIENT_ID = '1ba9607aaa7690399da2'
-SOCIAL_SECRET = 'afaf3e3f428086388f3f9efa9789d86177d37fb4'
+CLIENT_ID = '1ba9607aaa7690399da2'
+CLIENT_SCERET = "afaf3e3f428086388f3f9efa9789d86177d37fb4"
+SOCIAL_SECRET = "afaf3e3f428086388f3f9efa9789d86177d37fb4"
 
 ROOT_URLCONF = 'timetable_back.urls'
 
