@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>UNiVERSiTY</title>
+		<!-- Boxicons CSS -->
+		<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+	</head>
+
+	<body>
+		<!-- Registration Start -->
+		<section class="registration container">
+			<div class="wrap-form">
+				<h2 class="registration__title">Регистрация</h2>
+				<form method="POST" action="" class="registration__form">
+					{% csrf_token %} {{ form.as_p }}
+					<button type="submit">Подтвердить</button>
+				</form>
+				<p class="registration__text">
+					Уже есть аккаунта?<a href="#"> Войти</a>
+				</p>
+			</div>
+		</section>
+	</body>
+</html>
